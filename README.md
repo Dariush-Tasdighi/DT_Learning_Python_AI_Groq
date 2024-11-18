@@ -1,4 +1,4 @@
-# Useful Visual Studio Extensions
+# Useful Visual Studio Code Extensions
 
 * Python
 * Pylint
@@ -8,12 +8,12 @@
 
 <br>
 
-- Codeium
 - Jupyter
+- Codeium
 - vscode-pdf
 - Live Server
 - Rainbow CSV
-- Marp for VS Code [https://pandao.github.io/editor.md/en.html]
+- Marp for VS Code -> Learn Markdown: [https://pandao.github.io/editor.md/en.html]
 
 # Using Groq API
 
@@ -34,7 +34,8 @@
 - .\\.venv\Scripts\activate
 - pip list
 - python -m pip install -U pip
-- pip install -U ipywidgets
+- **For Jupyter:**
+    - pip install -U ipywidgets
 
 <br>
 
@@ -46,13 +47,13 @@
 - pip list
 - deactivate
 
-## Create .env File
+## Create .env File (For Saving Passwords / API Keys / Access Tokens)
 
 - Create a file:
     - .env
         - GROQ_API_KEY="..."
 
-## Fix PyLint Warning:
+## Fix PyLint Warnings
 
 - Open the command palette: Press F1 [OR] CTRL + SHIFT + P
 - Choose "Preference: Open Settins (JSON)"
