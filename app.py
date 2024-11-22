@@ -6,16 +6,23 @@ model_name = "llama-3.1-8b-instant"
 # **************************************************
 import os
 from groq import Groq
+from dotenv import load_dotenv
+
+# نکته مهم
+# باید دستور ذیل نوشته شود
+# هر چند که بر خلاف دستورات آتی
+# مستقیما از آن استفاده نمی‌شود
+load_dotenv()
 
 os.system(command="cls")
 
-# api_key = os.environ.get(key="abcde12345...") # Bad Practice
-# client = Groq(api_key=api_key)
-
+# api_key = "abcde12345..."  # Bad Practice
+# print(api_key)
 api_key = os.getenv(key="GROQ_API_KEY")
 # print(api_key)
 api_key = os.environ.get(key="GROQ_API_KEY")
 # print(api_key)
+
 client = Groq(api_key=api_key)
 
 chat_completion = client.chat.completions.create(
@@ -165,4 +172,51 @@ print("-" * 50)
 
 #     print("AI:", response)
 #     print("-" * 50)
+# **************************************************
+
+# **************************************************
+# import os
+# from groq import Groq
+# from dotenv import load_dotenv
+
+# os.system(command="cls")
+
+# load_dotenv()
+# client = Groq()
+
+# print("-" * 50)
+# models = client.models
+# print("Type of models:", type(models))
+
+# print("-" * 50)
+# list = models.list()
+# print("Type of list:", type(list))
+
+# print("-" * 50)
+# data = list.data
+# print("Type of list:", type(data))
+
+# # print("-" * 50)
+# # print(models)
+
+# # print("-" * 50)
+# # print(list)
+
+# # print("-" * 50)
+# # print(data)
+
+# # print("-" * 50)
+# # for model in data:
+# #     print(model)
+
+# print("-" * 50)
+# new_data = []
+# for model in data:
+#     new_data.append(model.id)
+
+# new_data.sort()
+# for model in new_data:
+#     print(model)
+
+# print("-" * 50)
 # **************************************************

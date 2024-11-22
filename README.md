@@ -17,7 +17,7 @@
 
 # Using Groq API
 
-- http://groq.com
+- https://groq.com
 - https://pypi.org/project/groq
 
 ## References
@@ -39,8 +39,8 @@
 
 <br>
 
-- pip install -U groq
 - pip install -U python-dotenv
+- pip install -U groq
 
 <br>
 
