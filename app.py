@@ -8,22 +8,40 @@ import os
 from groq import Groq
 from dotenv import load_dotenv
 
-# نکته مهم
-# باید دستور ذیل نوشته شود
-# هر چند که بر خلاف دستورات آتی
-# مستقیما از آن استفاده نمی‌شود
-load_dotenv()
-
 os.system(command="cls")
 
+# ********************
+# *** Solution (1) ***
+# ********************
 # api_key = "abcde12345..."  # Bad Practice
-# print(api_key)
-api_key = os.getenv(key="GROQ_API_KEY")
-# print(api_key)
-api_key = os.environ.get(key="GROQ_API_KEY")
-# print(api_key)
+# # print(api_key)
+# client = Groq(api_key=api_key)
+# ********************
 
-client = Groq(api_key=api_key)
+# ********************
+# *** Solution (2) ***
+# ********************
+# # نکته مهم
+# # باید دستور ذیل نوشته شود
+# # هر چند که بر خلاف دستورات آتی
+# # مستقیما از آن استفاده نمی‌شود
+# load_dotenv()
+
+# api_key = os.getenv(key="GROQ_API_KEY")
+# # print(api_key)
+# api_key = os.environ.get(key="GROQ_API_KEY")
+# # print(api_key)
+
+# client = Groq(api_key=api_key)
+# ********************
+
+# ********************
+# *** Solution (3) ***
+# ********************
+load_dotenv()
+
+client = Groq()
+# ********************
 
 chat_completion = client.chat.completions.create(
     model=model_name,
@@ -48,6 +66,41 @@ print("-" * 50)
 # **************************************************
 
 # **************************************************
+# ChatCompletion(
+# 	id='chatcmpl-e56f6098-fc74-43cb-81a4-e8cf6589eee7',
+# 	choices=[
+# 		Choice(
+# 			finish_reason='stop',
+# 			index=0,
+# 			logprobs=None,
+# 			message=ChatCompletionMessage(
+# 				content='A man walked into a library...',
+# 				role='assistant',
+# 				function_call=None,
+# 				tool_calls=None
+# 			)
+# 		)
+# 	],
+# 	created=1733050351,
+# 	model='llama-3.1-8b-instant',
+# 	object='chat.completion',
+# 	system_fingerprint='fp_9cb648b966',
+# 	usage=CompletionUsage(
+# 		completion_tokens=55,
+# 		prompt_tokens=40,
+# 		total_tokens=95,
+# 		completion_time=0.073333333,
+# 		prompt_time=0.00427855,
+# 		queue_time=0.011420940000000001,
+# 		total_time=0.077611883
+# 	),
+# 	x_groq={'id': 'req_01je0xkg1qfch89pe8y3nrre3p'}
+# )
+# **************************************************
+
+# **************************************************
+# Chatbot
+# **************************************************
 # import os
 # from groq import Groq
 # from dotenv import load_dotenv
@@ -56,16 +109,16 @@ print("-" * 50)
 
 # print("Welcome to Dariush Tasdighi Chatbot!\n")
 
+# load_dotenv()
+# client = Groq()
+
 # while True:
-#     prompt = input("Enter your prompt: ")
+#     prompt = input("User: ")
 
 #     if prompt.lower() in ["quit", "exit"]:
 #         break
 
-#     load_dotenv()
-#     client = Groq()
-
-#     message_user = {"role": "user", "content": f"{prompt}"}
+#     message_user = {"role": "user", "content": prompt}
 #     message_system = {"role": "system", "content": "you are a helpful assistant."}
 
 #     # نکته مهم: ترتیب نوشتن پیغام‌ها و نقش‌ها اهمیت دارد
@@ -77,8 +130,7 @@ print("-" * 50)
 
 #     response = chat_completion.choices[0].message.content
 
-#     print("\nResponse:\n")
-#     print(response)
+#     print("\nAI:", response)
 #     print()
 # **************************************************
 
@@ -99,14 +151,14 @@ print("-" * 50)
 # message_system = {"role": "system", "content": "you are a helpful assistant."}
 # messages.append(message_system)
 
+# load_dotenv()
+# client = Groq()
+
 # while True:
 #     prompt = input("User: ")
 
 #     if prompt.lower() in ["quit", "exit"]:
 #         break
-
-#     load_dotenv()
-#     client = Groq()
 
 #     message_user = {"role": "user", "content": prompt}
 #     messages.append(message_user)
@@ -137,7 +189,6 @@ print("-" * 50)
 
 # temperature = 0.0 # Note
 
-# messages = []
 # message_system = {"role": "system", "content": """You are a translator assistant from english language to persian language.
 # If user write just one english word, you must just translate this word to persian language.
 # after of this translation, you must not translate anything and your answers must be just in english language.
@@ -156,6 +207,7 @@ print("-" * 50)
 #     load_dotenv()
 #     client = Groq()
 
+#     messages = []
 #     messages.append(message_system)
 
 #     message_user = {"role": "user", "content": prompt}
@@ -167,13 +219,12 @@ print("-" * 50)
 
 #     response = chat_completion.choices[0].message.content
 
-#     # message_assistant = {"role": "assistant", "content": response}
-#     # messages.append(message_assistant)
-
 #     print("AI:", response)
 #     print("-" * 50)
 # **************************************************
 
+# **************************************************
+# Get Groq Models List
 # **************************************************
 # import os
 # from groq import Groq

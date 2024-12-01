@@ -22,6 +22,7 @@
 
 ## References
 
+- https://console.groq.com
 - https://console.groq.com/keys
 - https://console.groq.com/login
 - https://console.groq.com/settings
@@ -37,10 +38,8 @@
 - **For Jupyter:**
     - pip install -U ipywidgets
 
-<br>
-
-- pip install -U python-dotenv
 - pip install -U groq
+- pip install -U python-dotenv
 
 <br>
 
