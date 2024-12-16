@@ -1,24 +1,20 @@
-# Useful Visual Studio Code Extensions
-
-* Python
-* Pylint
-* Pylance
-* Black Formatter
-* Python Debugger
-
-<br>
-
-- Jupyter
-- Codeium
-- vscode-pdf
-- Live Server
-- Rainbow CSV
-- Marp for VS Code -> Learn Markdown: [https://pandao.github.io/editor.md/en.html]
-
 # Using Groq API
 
 - https://groq.com
 - https://pypi.org/project/groq
+- https://pypi.org/project/python-dotenv
+
+## Notes
+
+- llama 3.3
+    - 70b -> Online
+- llama 3.2
+    - 1b
+    - 3b
+- llama 3.1
+    - 8b -> Offline
+    - 70b
+    - 405b
 
 ## References
 
@@ -35,34 +31,15 @@
 - .\\.venv\Scripts\activate
 - pip list
 - python -m pip install -U pip
-- **For Jupyter:**
-    - pip install -U ipywidgets
-
 - pip install -U groq
 - pip install -U python-dotenv
-
-<br>
-
 - pip list
+
+Write / Edit / Run the Source Code(s)!
+
 - deactivate
 
-## Create .env File (For Saving Passwords / API Keys / Access Tokens)
+## Create .env File (For Saving Passwords / API Keys / Access Tokens / ...)
 
-- Create a file:
-    - .env
-        - GROQ_API_KEY="..."
-
-## Fix PyLint Warnings
-
-- Open the command palette: Press F1 [OR] CTRL + SHIFT + P
-- Choose "Preference: Open Settins (JSON)"
-
-```
-{
-    "security.workspace.trust.untrustedFiles": "open",
-    "pylint.args": [
-        "ignored-modules=cv2,streamlit,groq",
-        "--extension-pkg-whitelist=cv2,pygame,numpy,streamlit,groq"
-    ]
-}
-```
+- In the root of project, create a file, with the name of '.env', and write key name(s) and value:
+    - GROQ_API_KEY="..."

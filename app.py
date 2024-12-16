@@ -1,11 +1,12 @@
 # **************************************************
 model_name = "llama-3.1-8b-instant"
-# model_name = "llama-3.1-70b-versatile"
+# model_name = "llama-3.3-70b-versatile"
 # **************************************************
 
 # **************************************************
 import os
 from groq import Groq
+from pprint import pprint
 from dotenv import load_dotenv
 
 os.system(command="cls")
@@ -14,17 +15,17 @@ os.system(command="cls")
 # *** Solution (1) ***
 # ********************
 # api_key = "abcde12345..."  # Bad Practice
-# # print(api_key)
 # client = Groq(api_key=api_key)
 # ********************
 
 # ********************
 # *** Solution (2) ***
 # ********************
-# # نکته مهم
-# # باید دستور ذیل نوشته شود
-# # هر چند که بر خلاف دستورات آتی
-# # مستقیما از آن استفاده نمی‌شود
+# نکته مهم
+# باید دستور ذیل نوشته شود
+# هر چند که بر خلاف دستورات آتی
+# مستقیما از آن استفاده نمی‌شود
+# ********************
 # load_dotenv()
 
 # api_key = os.getenv(key="GROQ_API_KEY")
@@ -39,7 +40,6 @@ os.system(command="cls")
 # *** Solution (3) ***
 # ********************
 load_dotenv()
-
 client = Groq()
 # ********************
 
@@ -53,15 +53,12 @@ chat_completion = client.chat.completions.create(
     ],
 )
 
-# print("-" * 50)
-# print("type of chat_completion:", type(chat_completion))
-# print("-" * 50)
-# print(chat_completion)
-# print("-" * 50)
-
-response = chat_completion.choices[0].message.content
 print("-" * 50)
-print(response)
+print("type of chat_completion:", type(chat_completion))
+print("-" * 50)
+print(chat_completion)
+print("-" * 50)
+pprint(chat_completion)
 print("-" * 50)
 # **************************************************
 
@@ -99,6 +96,33 @@ print("-" * 50)
 # **************************************************
 
 # **************************************************
+# import os
+# from groq import Groq
+# from dotenv import load_dotenv
+
+# os.system(command="cls")
+
+# load_dotenv()
+# client = Groq()
+
+# chat_completion = client.chat.completions.create(
+#     model=model_name,
+#     messages=[
+#         {
+#             "role": "user",
+#             "content": "Tell me a joke.",
+#             # "content": "What is result of 2 + 2?",
+#         }
+#     ],
+# )
+
+# response = chat_completion.choices[0].message.content
+# print("-" * 50)
+# print(response)
+# print("-" * 50)
+# **************************************************
+
+# **************************************************
 # Chatbot
 # **************************************************
 # import os
@@ -113,6 +137,42 @@ print("-" * 50)
 # client = Groq()
 
 # while True:
+#     print("-" * 50)
+#     prompt = input("User: ")
+
+#     if prompt.lower() in ["quit", "exit"]:
+#         break
+
+#     message_user = {"role": "user", "content": prompt}
+
+#     messages = [message_user]
+
+#     chat_completion = client.chat.completions.create(
+#         model=model_name, messages=messages
+#     )
+
+#     response = chat_completion.choices[0].message.content
+
+#     result = f"\nAI: {response}"
+#     print(result)
+# **************************************************
+
+# **************************************************
+# Chatbot with System Role
+# **************************************************
+# import os
+# from groq import Groq
+# from dotenv import load_dotenv
+
+# os.system(command="cls")
+
+# print("Welcome to Dariush Tasdighi Chatbot!\n")
+
+# load_dotenv()
+# client = Groq()
+
+# while True:
+#     print("-" * 50)
 #     prompt = input("User: ")
 
 #     if prompt.lower() in ["quit", "exit"]:
@@ -130,8 +190,8 @@ print("-" * 50)
 
 #     response = chat_completion.choices[0].message.content
 
-#     print("\nAI:", response)
-#     print()
+#     result = f"\nAI: {response}"
+#     print(result)
 # **************************************************
 
 # **************************************************
@@ -145,6 +205,8 @@ print("-" * 50)
 
 # print("Welcome to Dariush Tasdighi Chatbot!\n")
 
+# # temperature -> 0 => Consistency -> 100
+# # temperature -> 1 => Creativity  -> 100
 # temperature = 0.5
 
 # messages = []
@@ -155,6 +217,7 @@ print("-" * 50)
 # client = Groq()
 
 # while True:
+#     print("-" * 50)
 #     prompt = input("User: ")
 
 #     if prompt.lower() in ["quit", "exit"]:
@@ -172,12 +235,12 @@ print("-" * 50)
 #     message_assistant = {"role": "assistant", "content": response}
 #     messages.append(message_assistant)
 
-#     print("AI:", response)
-#     print("-" * 50)
+#     result = f"\nAI: {response}"
+#     print(result)
 # **************************************************
 
 # **************************************************
-# Translator Assistant Chatbot without! History & without! Temperature!
+# Agent: Translator Assistant Chatbot without! History & without! Temperature!
 # **************************************************
 # import os
 # from groq import Groq
@@ -189,7 +252,7 @@ print("-" * 50)
 
 # temperature = 0.0 # Note
 
-# message_system = {"role": "system", "content": """You are a translator assistant from english language to persian language.
+# message_system = {"role": "system", "content": """You are a translator assistant from english language to persian (Farsi) language.
 # If user write just one english word, you must just translate this word to persian language.
 # after of this translation, you must not translate anything and your answers must be just in english language.
 # You must write the pronounciation of user english word.
@@ -199,6 +262,7 @@ print("-" * 50)
 # you must write 2 short sentences that has the user english word."""}
 
 # while True:
+#     print("-" * 50)
 #     prompt = input("User: ")
 
 #     if prompt.lower() in ["quit", "exit"]:
@@ -219,8 +283,8 @@ print("-" * 50)
 
 #     response = chat_completion.choices[0].message.content
 
-#     print("AI:", response)
-#     print("-" * 50)
+#     result = f"\nAI: {response}"
+#     print(result)
 # **************************************************
 
 # **************************************************
@@ -261,9 +325,11 @@ print("-" * 50)
 # #     print(model)
 
 # print("-" * 50)
-# new_data = []
-# for model in data:
-#     new_data.append(model.id)
+# # new_data = []
+# # for model in data:
+# #     new_data.append(model.id)
+
+# new_data = [model.id for model in data]
 
 # new_data.sort()
 # for model in new_data:
