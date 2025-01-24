@@ -1,67 +1,117 @@
 # **************************************************
-model_name = "llama-3.1-8b-instant"
-# model_name = "llama-3.3-70b-versatile"
+# Simple and Basic Sample (From Groq Documentation)
 # **************************************************
+# import os
 
-# **************************************************
-import os
-from groq import Groq
-from pprint import pprint
-from dotenv import load_dotenv
+# from groq import Groq
 
-os.system(command="cls")
+# api_key = "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"
 
-# ********************
-# *** Solution (1) ***
-# ********************
-# api_key = "abcde12345..."  # Bad Practice
 # client = Groq(api_key=api_key)
-# ********************
 
-# ********************
-# *** Solution (2) ***
-# ********************
-# نکته مهم
-# باید دستور ذیل نوشته شود
-# هر چند که بر خلاف دستورات آتی
-# مستقیما از آن استفاده نمی‌شود
-# ********************
+# chat_completion = client.chat.completions.create(
+#     messages=[
+#         {
+#             "role": "user",
+#             "content": "Explain the importance of fast language models",
+#         }
+#     ],
+#     model="llama-3.3-70b-versatile",
+# )
+
+# print(chat_completion.choices[0].message.content)
+# **************************************************
+
+
+# **************************************************
+# Best Practice For Using API Key
+# **************************************************
+# import os
+# from groq import Groq
+# from dotenv import load_dotenv
+
+# # os.system("cls")
+# os.system(command="cls")
+
+# # ********************
+# # *** Solution (1) ***
+# # ********************
+# # api_key = "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"  # Bad Practice
+# # client = Groq(api_key=api_key)
+# # ********************
+
+# # ********************
+# # *** Solution (2) ***
+# # ********************
+# # نکته مهم
+# # باید دستور ذیل نوشته شود
+# # هر چند که بر خلاف دستورات آتی
+# # مستقیما از آن استفاده نمی‌شود
+# # ********************
+# # load_dotenv()
+# # # OR
+# # # load_dotenv(dotenv_path=".envTemp")
+
+# # api_key = os.getenv(key="GROQ_API_KEY")
+# # print(api_key)
+
+# # api_key = os.environ.get(key="GROQ_API_KEY")
+# # print(api_key)
+
+# # client = Groq(api_key=api_key)
+# # ********************
+
+# # ********************
+# # *** Solution (3) ***
+# # ********************
 # load_dotenv()
-
-# api_key = os.getenv(key="GROQ_API_KEY")
-# # print(api_key)
-# api_key = os.environ.get(key="GROQ_API_KEY")
-# # print(api_key)
-
-# client = Groq(api_key=api_key)
-# ********************
-
-# ********************
-# *** Solution (3) ***
-# ********************
-load_dotenv()
-client = Groq()
-# ********************
-
-chat_completion = client.chat.completions.create(
-    model=model_name,
-    messages=[
-        {
-            "role": "user",
-            "content": "Tell me a joke.",
-        }
-    ],
-)
-
-print("-" * 50)
-print("type of chat_completion:", type(chat_completion))
-print("-" * 50)
-print(chat_completion)
-print("-" * 50)
-pprint(chat_completion)
-print("-" * 50)
+# client = Groq()
 # **************************************************
 
+
+# **************************************************
+# استراتژی انتخاب مدل
+# **************************************************
+MODEL_NAME: str = "llama-3.1-8b-instant"
+# MODEL_NAME: str = "llama-3.3-70b-versatile"
+# **************************************************
+
+
+# **************************************************
+# import os
+# from groq import Groq
+# from pprint import pprint
+# from dotenv import load_dotenv
+
+# os.system(command="cls")
+
+# load_dotenv()
+# client = Groq()
+
+# chat_completion = client.chat.completions.create(
+#     model=MODEL_NAME,
+#     messages=[
+#         {
+#             "role": "user",
+#             "content": "Tell me a joke.",
+#         }
+#     ],
+# )
+
+# print("-" * 50)
+# print("type of chat_completion:", type(chat_completion))
+# print("-" * 50)
+# print(chat_completion)
+# print("-" * 50)
+# print(chat_completion.choices[0].message.content)
+# print("-" * 50)
+# pprint(chat_completion.choices[0].message.content)
+# print("-" * 50)
+# **************************************************
+
+
+# **************************************************
+# ChatCompletion Object
 # **************************************************
 # ChatCompletion(
 # 	id='chatcmpl-e56f6098-fc74-43cb-81a4-e8cf6589eee7',
@@ -95,6 +145,9 @@ print("-" * 50)
 # )
 # **************************************************
 
+
+# **************************************************
+# یادآوری: هوش مصنوعی قابلیت حل مساله دارد
 # **************************************************
 # import os
 # from groq import Groq
@@ -105,25 +158,28 @@ print("-" * 50)
 # load_dotenv()
 # client = Groq()
 
+# # وقتی نام پارامتر را می‌نویسیم، ترتیب نوشتن
+# # پارامترها مهم نیست و من معمولا به ترتیب قد می‌نویسیم
 # chat_completion = client.chat.completions.create(
-#     model=model_name,
+#     model=MODEL_NAME,
 #     messages=[
 #         {
 #             "role": "user",
-#             "content": "Tell me a joke.",
-#             # "content": "What is result of 2 + 2?",
+#             # "content": "Tell me a joke.",
+#             "content": "What is result of 2 + 2?",
 #         }
 #     ],
 # )
 
-# response = chat_completion.choices[0].message.content
+# assistant_answer = chat_completion.choices[0].message.content
 # print("-" * 50)
-# print(response)
+# print(assistant_answer)
 # print("-" * 50)
 # **************************************************
 
+
 # **************************************************
-# Chatbot
+# Simple Text Chatbot without History
 # **************************************************
 # import os
 # from groq import Groq
@@ -138,27 +194,28 @@ print("-" * 50)
 
 # while True:
 #     print("-" * 50)
-#     prompt = input("User: ")
+#     user_prompt: str = input("User: ")
 
-#     if prompt.lower() in ["quit", "exit"]:
+#     if user_prompt.lower() in ["quit", "exit", "bye"]:
 #         break
 
-#     message_user = {"role": "user", "content": prompt}
-
-#     messages = [message_user]
+#     messages = []
+#     user_message = {"role": "user", "content": user_prompt}
+#     messages.append(user_message)
 
 #     chat_completion = client.chat.completions.create(
-#         model=model_name, messages=messages
+#         model=MODEL_NAME, messages=messages
 #     )
 
-#     response = chat_completion.choices[0].message.content
+#     assistant_answer = chat_completion.choices[0].message.content
 
-#     result = f"\nAI: {response}"
+#     result = f"\nAI: {assistant_answer}"
 #     print(result)
 # **************************************************
 
+
 # **************************************************
-# Chatbot with System Role
+# Chatbot with System Role without History
 # **************************************************
 # import os
 # from groq import Groq
@@ -173,26 +230,32 @@ print("-" * 50)
 
 # while True:
 #     print("-" * 50)
-#     prompt = input("User: ")
+#     user_prompt: str = input("User: ")
 
-#     if prompt.lower() in ["quit", "exit"]:
+#     if user_prompt.lower() in ["quit", "exit", "bye"]:
 #         break
 
-#     message_user = {"role": "user", "content": prompt}
-#     message_system = {"role": "system", "content": "you are a helpful assistant."}
+#     messages = []
 
-#     # نکته مهم: ترتیب نوشتن پیغام‌ها و نقش‌ها اهمیت دارد
-#     messages = [message_system, message_user]
+#     system_prompt = "You are a helpful assistant."
+#     system_message = {"role": "system", "content": system_prompt}
+
+#     user_message = {"role": "user", "content": user_prompt}
+
+#     # نکته مهم: ترتیب نوشتن پیغام‌ها و نقش‌ها بسیار اهمیت دارد
+#     messages.append(system_message)
+#     messages.append(user_message)
 
 #     chat_completion = client.chat.completions.create(
-#         model=model_name, messages=messages
+#         model=MODEL_NAME, messages=messages
 #     )
 
-#     response = chat_completion.choices[0].message.content
+#     assistant_answer = chat_completion.choices[0].message.content
 
-#     result = f"\nAI: {response}"
+#     result = f"\nAI: {assistant_answer}"
 #     print(result)
 # **************************************************
+
 
 # **************************************************
 # Chatbot with History & Temperature!
@@ -205,39 +268,43 @@ print("-" * 50)
 
 # print("Welcome to Dariush Tasdighi Chatbot!\n")
 
-# # temperature -> 0 => Consistency -> 100
-# # temperature -> 1 => Creativity  -> 100
-# temperature = 0.5
-
-# messages = []
-# message_system = {"role": "system", "content": "you are a helpful assistant."}
-# messages.append(message_system)
-
 # load_dotenv()
 # client = Groq()
 
+# # 0 <= temperature <= 2
+# # temperature -> 0 => Consistency -> 100
+# # temperature -> 1 => Creativity  -> 100
+# TEMPERATURE: float = 0.8
+
+# messages = []
+
+# system_prompt = "You are a helpful assistant."
+# system_message = {"role": "system", "content": system_prompt}
+# messages.append(system_message)
+
 # while True:
 #     print("-" * 50)
-#     prompt = input("User: ")
+#     user_prompt: str = input("User: ")
 
-#     if prompt.lower() in ["quit", "exit"]:
+#     if user_prompt.lower() in ["quit", "exit", "bye"]:
 #         break
 
-#     message_user = {"role": "user", "content": prompt}
-#     messages.append(message_user)
+#     user_message = {"role": "user", "content": user_prompt}
+#     messages.append(user_message)
 
 #     chat_completion = client.chat.completions.create(
-#         model=model_name, messages=messages, temperature=temperature
+#         model=MODEL_NAME, messages=messages, temperature=TEMPERATURE
 #     )
 
-#     response = chat_completion.choices[0].message.content
+#     assistant_answer = chat_completion.choices[0].message.content
 
-#     message_assistant = {"role": "assistant", "content": response}
-#     messages.append(message_assistant)
+#     assistant_message = {"role": "assistant", "content": assistant_answer}
+#     messages.append(assistant_message)
 
-#     result = f"\nAI: {response}"
+#     result = f"\nAI: {assistant_answer}"
 #     print(result)
 # **************************************************
+
 
 # **************************************************
 # Agent: Translator Assistant Chatbot without! History & without! Temperature!
@@ -248,44 +315,49 @@ print("-" * 50)
 
 # os.system(command="cls")
 
-# print("Welcome to Dariush Tasdighi Chatbot!\n")
+# print("Welcome to Dariush Tasdighi Dictionary Chatbot!\n")
 
-# temperature = 0.0 # Note
+# load_dotenv()
+# client = Groq()
 
-# message_system = {"role": "system", "content": """You are a translator assistant from english language to persian (Farsi) language.
-# If user write just one english word, you must just translate this word to persian language.
-# after of this translation, you must not translate anything and your answers must be just in english language.
-# You must write the pronounciation of user english word.
-# You must write the type of user english word, for example: noun, verb and so on.
-# You must write 5 synonyms for user english word.
-# you must write 2 antonyms for user english word.
-# you must write 2 short sentences that has the user english word."""}
+# TEMPERATURE: float = 0.0  # Note
+
+# system_prompt: str = """You are a useful assistant."""
+
+# # system_prompt: str = """You are a translator assistant from english language to persian (Farsi) language.
+# # If user write just one english word, you must just translate this word to persian language.
+# # after of this translation, you must not translate anything and your answers must be just in english language.
+# # You must write the pronounciation of user english word.
+# # You must write the type of user english word, for example: noun, verb and so on.
+# # You must write 5 synonyms for user english word.
+# # you must write 2 antonyms for user english word.
+# # you must write 2 short sentences that has the user english word."""
 
 # while True:
 #     print("-" * 50)
-#     prompt = input("User: ")
+#     user_prompt: str = input("User: ")
 
-#     if prompt.lower() in ["quit", "exit"]:
+#     if user_prompt.lower() in ["quit", "exit", "bye"]:
 #         break
 
-#     load_dotenv()
-#     client = Groq()
-
 #     messages = []
-#     messages.append(message_system)
 
-#     message_user = {"role": "user", "content": prompt}
-#     messages.append(message_user)
+#     system_message = {"role": "system", "content": system_prompt}
+#     messages.append(system_message)
+
+#     user_message = {"role": "user", "content": user_prompt}
+#     messages.append(user_message)
 
 #     chat_completion = client.chat.completions.create(
-#         model=model_name, messages=messages, temperature=temperature
+#         model=MODEL_NAME, messages=messages, temperature=TEMPERATURE
 #     )
 
-#     response = chat_completion.choices[0].message.content
+#     assistant_answer = chat_completion.choices[0].message.content
 
-#     result = f"\nAI: {response}"
+#     result = f"\nAI: {assistant_answer}"
 #     print(result)
 # **************************************************
+
 
 # **************************************************
 # Get Groq Models List
