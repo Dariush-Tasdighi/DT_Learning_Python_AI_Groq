@@ -34,8 +34,8 @@ print(chat_completion.choices[0].message.content)
 # # ********************
 # # *** Solution (1) ***
 # # ********************
-# # api_key = "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"  # Bad Practice
-# # client = Groq(api_key=api_key)
+# api_key = "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"  # Bad Practice
+# client = Groq(api_key=api_key)
 # # ********************
 
 # # ********************
@@ -46,17 +46,17 @@ print(chat_completion.choices[0].message.content)
 # # هر چند که بر خلاف دستورات آتی
 # # مستقیما از آن استفاده نمی‌شود
 # # ********************
-# # load_dotenv()
-# # # OR
-# # # load_dotenv(dotenv_path=".envTemp")
+# load_dotenv()
+# # OR
+# # load_dotenv(dotenv_path=".envTemp")
 
-# # api_key = os.getenv(key="GROQ_API_KEY")
-# # print(api_key)
+# api_key = os.getenv(key="GROQ_API_KEY")
+# print(api_key)
 
-# # api_key = os.environ.get(key="GROQ_API_KEY")
-# # print(api_key)
+# api_key = os.environ.get(key="GROQ_API_KEY")
+# print(api_key)
 
-# # client = Groq(api_key=api_key)
+# client = Groq(api_key=api_key)
 # # ********************
 
 # # ********************
@@ -86,6 +86,8 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 # load_dotenv()
 # client = Groq()
 
+# # وقتی نام پارامتر را می‌نویسیم، ترتیب نوشتن
+# # پارامترها مهم نیست و من معمولا به ترتیب قد می‌نویسیم
 # chat_completion = client.chat.completions.create(
 #     model=MODEL_NAME,
 #     messages=[
@@ -156,8 +158,6 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 # load_dotenv()
 # client = Groq()
 
-# # وقتی نام پارامتر را می‌نویسیم، ترتیب نوشتن
-# # پارامترها مهم نیست و من معمولا به ترتیب قد می‌نویسیم
 # chat_completion = client.chat.completions.create(
 #     model=MODEL_NAME,
 #     messages=[
@@ -300,7 +300,7 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 
 #     messages = []
 
-#     system_prompt = "You are a helpful assistant."
+#     system_prompt: str = "You are a helpful assistant."
 #     system_message = {"role": "system", "content": system_prompt}
 
 #     user_message = {"role": "user", "content": user_prompt}
@@ -385,16 +385,16 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 
 # TEMPERATURE: float = 0.0  # Note
 
-# system_prompt: str = """You are a useful assistant."""
+# # system_prompt: str = """You are a useful assistant."""
 
-# # system_prompt: str = """You are a translator assistant from english language to persian (Farsi) language.
-# # If user write just one english word, you must just translate this word to persian language.
-# # after of this translation, you must not translate anything and your answers must be just in english language.
-# # You must write the pronounciation of user english word.
-# # You must write the type of user english word, for example: noun, verb and so on.
-# # You must write 5 synonyms for user english word.
-# # you must write 2 antonyms for user english word.
-# # you must write 2 short sentences that has the user english word."""
+# system_prompt: str = """You are a translator assistant from english language to persian (Farsi) language.
+# If user write just one english word, you must just translate this word to persian language.
+# after of this translation, you must not translate anything and your answers must be just in english language.
+# You must write the pronounciation of user english word.
+# You must write the type of user english word, for example: noun, verb and so on.
+# You must write 5 synonyms for user english word.
+# you must write 2 antonyms for user english word.
+# you must write 2 short sentences that has the user english word."""
 
 # while True:
 #     print("-" * 50)

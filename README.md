@@ -31,10 +31,16 @@
 - python -m venv .venv
 - .\\.venv\Scripts\activate
 - pip list
+
+<br>
+
 - python -m pip install -U pip
 - python -m pip install -U groq
-- python -m pip install -U streamlit
 - python -m pip install -U python-dotenv
+
+<br>
+
+- python -m pip install -U streamlit
 - pip list
 
 Write / Edit / Run the Source Code(s)!
