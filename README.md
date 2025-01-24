@@ -23,6 +23,7 @@
 - https://console.groq.com/login
 - https://console.groq.com/settings
 - https://console.groq.com/docs/models
+- https://console.groq.com/docs/text-chat
 - https://console.groq.com/docs/quickstart
 
 ## Setup Environment

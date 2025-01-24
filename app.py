@@ -1,25 +1,23 @@
 # **************************************************
 # Simple and Basic Sample (From Groq Documentation)
 # **************************************************
-# import os
+from groq import Groq
 
-# from groq import Groq
+api_key = "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"
 
-# api_key = "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"
+client = Groq(api_key=api_key)
 
-# client = Groq(api_key=api_key)
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "Explain the importance of fast language models",
+        }
+    ],
+    model="llama-3.3-70b-versatile",
+)
 
-# chat_completion = client.chat.completions.create(
-#     messages=[
-#         {
-#             "role": "user",
-#             "content": "Explain the importance of fast language models",
-#         }
-#     ],
-#     model="llama-3.3-70b-versatile",
-# )
-
-# print(chat_completion.choices[0].message.content)
+print(chat_completion.choices[0].message.content)
 # **************************************************
 
 
@@ -174,6 +172,71 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 # assistant_answer = chat_completion.choices[0].message.content
 # print("-" * 50)
 # print(assistant_answer)
+# print("-" * 50)
+# **************************************************
+
+
+# **************************************************
+# Get Response with Stream
+# **************************************************
+# import os
+# from groq import Groq
+# from dotenv import load_dotenv
+
+# os.system(command="cls")
+
+# load_dotenv()
+# client = Groq()
+
+# chat_completion_stream = client.chat.completions.create(
+#     stream=True,
+#     model=MODEL_NAME,
+#     messages=[
+#         {
+#             "role": "user",
+#             "content": "Explain the importance of fast language models",
+#         }
+#     ],
+# )
+
+# for chunk in chat_completion_stream:
+#     print(chunk.choices[0].delta.content, end="")
+# **************************************************
+
+
+# **************************************************
+# Get Response Time
+# **************************************************
+# import os
+# import time
+# from groq import Groq
+# from dotenv import load_dotenv
+
+# os.system(command="cls")
+
+# load_dotenv()
+# client = Groq()
+
+# start_time: float = time.time()
+
+# chat_completion = client.chat.completions.create(
+#     stream=False,
+#     model=MODEL_NAME,
+#     messages=[
+#         {
+#             "role": "user",
+#             "content": "Explain the importance of fast language models",
+#         }
+#     ],
+# )
+
+# response_time: float = time.time() - start_time
+
+# assistant_answer = chat_completion.choices[0].message.content
+# print("-" * 50)
+# print(assistant_answer)
+# print("-" * 50)
+# print(f"Full response received {response_time:.2f} seconds after request.")
 # print("-" * 50)
 # **************************************************
 
@@ -356,56 +419,4 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 
 #     result = f"\nAI: {assistant_answer}"
 #     print(result)
-# **************************************************
-
-
-# **************************************************
-# Get Groq Models List
-# **************************************************
-# import os
-# from groq import Groq
-# from dotenv import load_dotenv
-
-# os.system(command="cls")
-
-# load_dotenv()
-# client = Groq()
-
-# print("-" * 50)
-# models = client.models
-# print("Type of models:", type(models))
-
-# print("-" * 50)
-# list = models.list()
-# print("Type of list:", type(list))
-
-# print("-" * 50)
-# data = list.data
-# print("Type of list:", type(data))
-
-# # print("-" * 50)
-# # print(models)
-
-# # print("-" * 50)
-# # print(list)
-
-# # print("-" * 50)
-# # print(data)
-
-# # print("-" * 50)
-# # for model in data:
-# #     print(model)
-
-# print("-" * 50)
-# # new_data = []
-# # for model in data:
-# #     new_data.append(model.id)
-
-# new_data = [model.id for model in data]
-
-# new_data.sort()
-# for model in new_data:
-#     print(model)
-
-# print("-" * 50)
 # **************************************************
