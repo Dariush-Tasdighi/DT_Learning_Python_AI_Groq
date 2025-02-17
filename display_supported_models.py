@@ -14,19 +14,19 @@
 # models = client.models
 # print("Type of models:", type(models))
 
+# # print("-" * 50)
+# # print(models)
+
 # print("-" * 50)
 # list = models.list()
 # print("Type of list:", type(list))
 
+# # print("-" * 50)
+# # print(list)
+
 # print("-" * 50)
 # data = list.data
 # print("Type of list:", type(data))
-
-# # print("-" * 50)
-# # print(models)
-
-# # print("-" * 50)
-# # print(list)
 
 # # print("-" * 50)
 # # print(data)
@@ -35,17 +35,20 @@
 # # for model in data:
 # #     print(model)
 
-# print("-" * 50)
+# # print("-" * 50)
+# # for model in data:
+# #     print(model.id)
+
 # # new_data = []
 # # for model in data:
 # #     new_data.append(model.id)
 
 # new_data = [model.id for model in data]
-
 # new_data.sort()
+
+# print("-" * 50)
 # for model in new_data:
 #     print(model)
-
 # print("-" * 50)
 # **************************************************
 
@@ -62,8 +65,7 @@ os.system(command="cls")
 load_dotenv()
 client = Groq()
 
-models = client.models.list()
-data = models.data
+data = client.models.list().data
 
 new_data = [model.id for model in data]
 new_data.sort()

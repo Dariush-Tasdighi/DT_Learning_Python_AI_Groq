@@ -28,24 +28,44 @@
 
 ## Setup Environment
 
-- python -m venv .venv
-- .\\.venv\Scripts\activate
-- pip list
+```shell
+python -m venv .venv
+```
 
-<br>
+```shell
+.\.venv\Scripts\activate
+```
 
-- python -m pip install -U pip
-- python -m pip install -U groq
-- python -m pip install -U python-dotenv
+```shell
+python -m pip list
+```
 
-<br>
+```shell
+python -m pip install -U pip
+```
 
-- python -m pip install -U streamlit
-- pip list
+```shell
+python -m pip install -U groq
+```
 
-Write / Edit / Run the Source Code(s)!
+```shell
+python -m pip install -U streamlit
+```
 
-- deactivate
+```shell
+python -m pip install -U python-dotenv
+```
+
+```shell
+python -m pip list
+```
+
+- Write / Edit / Run the Source Code(s)!
+
+
+```shell
+deactivate
+```
 
 ## Create .env File (For Saving Passwords / API Keys / Access Tokens / ...)
 

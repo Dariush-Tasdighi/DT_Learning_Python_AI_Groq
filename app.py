@@ -3,7 +3,7 @@
 # **************************************************
 from groq import Groq
 
-api_key = "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"
+api_key = "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"
 
 client = Groq(api_key=api_key)
 
@@ -11,7 +11,8 @@ chat_completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "Explain the importance of fast language models",
+            "content": "Tell me a joke.",
+            # "content": "Explain the importance of fast language models",
         }
     ],
     model="llama-3.3-70b-versatile",
@@ -34,7 +35,7 @@ print(chat_completion.choices[0].message.content)
 # # ********************
 # # *** Solution (1) ***
 # # ********************
-# api_key = "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"  # Bad Practice
+# api_key = "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"  # Bad Practice
 # client = Groq(api_key=api_key)
 # # ********************
 
@@ -165,6 +166,7 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 #             "role": "user",
 #             # "content": "Tell me a joke.",
 #             "content": "What is result of 2 + 2?",
+#             # "content": "محمد دو تا برادر دارد به نام های علی و اکبر، و اکبر هم یک خواهر دارد به نام سارا، و همه آن‌ها با هم با پدر و مادرشان زندگی می‌کنند. به من بگو در این خانواده چند نفر زندگی می‌کنند.",
 #         }
 #     ],
 # )
@@ -233,6 +235,7 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 # response_time: float = time.time() - start_time
 
 # assistant_answer = chat_completion.choices[0].message.content
+
 # print("-" * 50)
 # print(assistant_answer)
 # print("-" * 50)
@@ -266,14 +269,22 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 #     user_message = {"role": "user", "content": user_prompt}
 #     messages.append(user_message)
 
+#     # chat_completion = client.chat.completions.create(
+#     #     stream=False, model=MODEL_NAME, messages=messages
+#     # )
+
 #     chat_completion = client.chat.completions.create(
-#         model=MODEL_NAME, messages=messages
+#         stream=False,
+#         model=MODEL_NAME,
+#         messages=messages,
 #     )
 
 #     assistant_answer = chat_completion.choices[0].message.content
 
-#     result = f"\nAI: {assistant_answer}"
+#     result: str = f"\nAI: {assistant_answer}"
 #     print(result)
+#     print("-" * 50)
+#     print()
 # **************************************************
 
 
@@ -310,13 +321,17 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 #     messages.append(user_message)
 
 #     chat_completion = client.chat.completions.create(
-#         model=MODEL_NAME, messages=messages
+#         stream=False,
+#         model=MODEL_NAME,
+#         messages=messages,
 #     )
 
-#     assistant_answer = chat_completion.choices[0].message.content
+#     assistant_answer: str | None = chat_completion.choices[0].message.content
 
-#     result = f"\nAI: {assistant_answer}"
+#     result: str = f"\nAI: {assistant_answer}"
 #     print(result)
+#     print("-" * 50)
+#     print()
 # **************************************************
 
 
@@ -341,7 +356,7 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 
 # messages = []
 
-# system_prompt = "You are a helpful assistant."
+# system_prompt: str = "You are a helpful assistant."
 # system_message = {"role": "system", "content": system_prompt}
 # messages.append(system_message)
 
@@ -356,16 +371,21 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 #     messages.append(user_message)
 
 #     chat_completion = client.chat.completions.create(
-#         model=MODEL_NAME, messages=messages, temperature=TEMPERATURE
+#         stream=False,
+#         model=MODEL_NAME,
+#         messages=messages,
+#         temperature=TEMPERATURE,
 #     )
 
-#     assistant_answer = chat_completion.choices[0].message.content
+#     assistant_answer: str | None = chat_completion.choices[0].message.content
 
 #     assistant_message = {"role": "assistant", "content": assistant_answer}
 #     messages.append(assistant_message)
 
-#     result = f"\nAI: {assistant_answer}"
+#     result: str = f"\nAI: {assistant_answer}"
 #     print(result)
+#     print("-" * 50)
+#     print()
 # **************************************************
 
 
@@ -388,7 +408,7 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 # # system_prompt: str = """You are a useful assistant."""
 
 # system_prompt: str = """You are a translator assistant from english language to persian (Farsi) language.
-# If user write just one english word, you must just translate this word to persian language.
+# If user write just one english word, you must just translate this word to persian (Farsi) language.
 # after of this translation, you must not translate anything and your answers must be just in english language.
 # You must write the pronounciation of user english word.
 # You must write the type of user english word, for example: noun, verb and so on.
@@ -412,11 +432,16 @@ MODEL_NAME: str = "llama-3.1-8b-instant"
 #     messages.append(user_message)
 
 #     chat_completion = client.chat.completions.create(
-#         model=MODEL_NAME, messages=messages, temperature=TEMPERATURE
+#         stream=False,
+#         model=MODEL_NAME,
+#         messages=messages,
+#         temperature=TEMPERATURE,
 #     )
 
-#     assistant_answer = chat_completion.choices[0].message.content
+#     assistant_answer: str | None = chat_completion.choices[0].message.content
 
-#     result = f"\nAI: {assistant_answer}"
+#     result: str = f"\nAI: {assistant_answer}"
 #     print(result)
+#     print("-" * 50)
+#     print()
 # **************************************************
