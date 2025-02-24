@@ -146,13 +146,13 @@ def main() -> None:
 
     file_content: str = functions.read_text_file(pathfile=source_pathfile)
     file_content = functions.normalize_text(text=file_content)
-    sentences: list[str] = functions.get_sentences(text=file_content)
+    paragraphs: list[str] = functions.get_paragraphs(text=file_content)
 
     with open(file=target_pathfile, mode="wt", encoding="utf-8") as file:
-        for sentence in sentences:
-            translated: str = functions.translate(text=sentence)
+        for paragraph in paragraphs:
+            translated: str = functions.translate(text=paragraph)
             file.write(translated)
-            file.write("\n")
+            file.write("\n\n")
 
     print("Translation Completed...")
 

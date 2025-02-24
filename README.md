@@ -60,7 +60,7 @@ python -m pip install -U python-dotenv
 python -m pip list
 ```
 
-- Write / Edit / Run the Source Code(s)!
+Now! We Write / Modify / Delete / Run the Source Codes...
 
 
 ```shell

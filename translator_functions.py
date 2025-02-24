@@ -61,6 +61,16 @@ def get_sentences(text: str) -> list[str]:
     return sentences
 
 
+def get_paragraphs(text: str) -> list[str]:
+    """
+    Get Paragraphs Function
+    """
+
+    paragraphs = text.split("\n\n")
+
+    return paragraphs
+
+
 def translate(
     text: str,
     model_name: str = "llama-3.1-8b-instant",
